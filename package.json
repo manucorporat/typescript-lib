@@ -1,0 +1,58 @@
+{
+  "name": "typescript-lib",
+  "version": "0.0.1",
+  "description": "Typescript library starter",
+  "author": "Manu Mtz.-Almeida",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "rollup",
+    "starter"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "browser": "dist/umd/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc --project && rollup -c",
+    "dev": "npm run clean && npm link && tsc --project . -w --outDir ./dist/es",
+    "watch": "tsc -w",
+    "test": "jest",
+    "deploy": "np",
+    "lint": "tslint --project . --type-check src/**/*.ts",
+    "version": "npm run build"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.0",
+    "@types/node": "^9.3.0",
+    "np": "^2.18.3",
+    "rollup": "^0.55.1",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "ts-jest": "^22.0.1",
+    "tslint": "^5.9.1",
+    "tslint-ionic-rules": "0.0.13",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "jest": "^22.1.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
